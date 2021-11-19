@@ -1,7 +1,8 @@
 {
   "name": "afterdisco",
   "version": "1.0.0",
-  "description": "",
+  "type": "module",
+  "description": "Dancing Screen for Dancing Queen - Generative Design with Spotify API",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
