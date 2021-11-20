@@ -1,13 +1,25 @@
-  /* Load the HTTP library */
-  var http = require("http");
 
-  /* Create an HTTP server to handle responses */
+const express = require("express");
+const path = require("path");
 
-  http.createServer(function(request, response) {
-    //response.writeHead(200, //{"Content-Type":"text/plain"});
-    //response.write("Hello World");
-    response.end();
 
-  }).listen(5000);
+const PORT = process.env.PORT || 5000;
 
-  console.log('Is your refrigerator running? Check localhost:5000');
+const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static(path.join(__dirname, '/public')));
+
+
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "./index.html"));
+
+    
+  });
+  
+app.listen(PORT, function() {
+    console.log("App listening on PORT: " + PORT);
+    
+    
+  });
